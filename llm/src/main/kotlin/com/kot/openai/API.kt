@@ -1,11 +1,8 @@
 package com.kot.openai
 
-import com.kot.com.kot.openai.LLMMessage
 import kotlinx.serialization.Serializable
 
 object OpenAIAPI {
-    const val BASE_URL = "https://api.openai.com/v1/"
-
     @Serializable
     data class RequestAPI(
         val model: String,
@@ -21,6 +18,5 @@ object OpenAIAPI {
             val message: LLMMessage
         )
     }
-
 }
 
