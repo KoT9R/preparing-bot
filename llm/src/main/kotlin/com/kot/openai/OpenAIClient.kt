@@ -31,9 +31,9 @@ object OpenAIClient {
         }
         install(SSE)
         install(HttpTimeout) {
-            requestTimeoutMillis = 10000
-            connectTimeoutMillis = 5000
-            socketTimeoutMillis = 15000
+            requestTimeoutMillis = 100000
+            connectTimeoutMillis = 50000
+            socketTimeoutMillis = 150000
         }
         defaultRequest {
             header(HttpHeaders.Authorization, OpenAIConf.authorization)
