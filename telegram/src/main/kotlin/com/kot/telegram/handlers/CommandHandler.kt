@@ -1,4 +1,4 @@
-package com.kot.com.kot.telegram.handlers
+package com.kot.telegram.handlers
 
 import com.github.kotlintelegrambot.dispatcher.Dispatcher
 import com.github.kotlintelegrambot.dispatcher.command

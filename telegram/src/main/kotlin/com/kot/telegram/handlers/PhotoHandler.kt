@@ -1,7 +1,8 @@
-package com.kot.com.kot.telegram.handlers
+package com.kot.telegram.handlers
 
 import com.github.kotlintelegrambot.dispatcher.Dispatcher
 import com.github.kotlintelegrambot.dispatcher.message
+import com.github.kotlintelegrambot.entities.ChatAction
 import com.github.kotlintelegrambot.entities.ChatId
 import com.kot.com.kot.telegram.Bot
 import com.kot.openai.OpenAIClient
@@ -27,7 +28,6 @@ object PhotoHandler {
         }
     }
 
-    @OptIn(ExperimentalEncodingApi::class)
     fun registerHandlers(dispatcher: Dispatcher) {
         dispatcher.message {
             val chatId = update.message?.chat?.id ?: return@message
@@ -38,10 +38,9 @@ object PhotoHandler {
             //TODO: add logging
             val photoBase64 = TgClient.getFileAsBase64(photo.last().fileId, Bot.token) ?: return@message
 
-            //check the message
-            //send to open ai
-
+            //TODO: check the message
             val llmMessage = listOf(TgPhoto(ImageBase64(photoBase64), caption).toUserMessage())
+            bot.sendChatAction(ChatId.fromId(chatId), ChatAction.TYPING)
 
             val result = OpenAIClient.get(llmMessage)
 

@@ -1,12 +1,14 @@
-package com.kot.com.kot.telegram.handlers
+package com.kot.telegram.handlers
 
 import com.github.kotlintelegrambot.dispatcher.Dispatcher
 import com.github.kotlintelegrambot.dispatcher.message
+import com.github.kotlintelegrambot.entities.ChatAction
 import com.github.kotlintelegrambot.entities.ChatId
 import com.kot.openai.*
 import com.kot.openai.chat.Assistant
 import com.kot.openai.chat.LLMMessage
 import com.kot.openai.chat.User
+import com.kot.telegram.utils.toAssistantMessage
 
 object MessageHandler {
     fun registerHandlers(dispatcher: Dispatcher) {
@@ -17,9 +19,8 @@ object MessageHandler {
             val result = OpenAIClient.get(messageText.toMessages())
 
             //check the message
-            //send to open ai
-
-            bot.sendMessage(ChatId.fromId(chatId), result.choices.first().message.toMessage() ?: "Error")
+            bot.sendChatAction(ChatId.fromId(chatId), ChatAction.TYPING)
+            bot.sendMessage(ChatId.fromId(chatId), result.toAssistantMessage())
         }
     }
 

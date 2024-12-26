@@ -2,9 +2,9 @@ package com.kot.com.kot.telegram
 
 import com.github.kotlintelegrambot.bot
 import com.github.kotlintelegrambot.dispatch
-import com.kot.com.kot.telegram.handlers.CommandHandler
-import com.kot.com.kot.telegram.handlers.MessageHandler
-import com.kot.com.kot.telegram.handlers.PhotoHandler
+import com.kot.telegram.handlers.CommandHandler
+import com.kot.telegram.handlers.MessageHandler
+import com.kot.telegram.handlers.PhotoHandler
 
 object Bot {
     val token = System.getenv("BOT_TOKEN")
