@@ -7,7 +7,7 @@ import com.kot.com.kot.telegram.handlers.MessageHandler
 import com.kot.com.kot.telegram.handlers.PhotoHandler
 
 object Bot {
-    private val token = System.getenv("BOT_TOKEN")
+    val token = System.getenv("BOT_TOKEN")
 
     val botInstance = bot {
         token = this@Bot.token

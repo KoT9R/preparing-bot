@@ -1,5 +1,7 @@
 package com.kot.openai
 
+import com.kot.openai.api.OpenAIAPI
+import com.kot.openai.chat.LLMMessage
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -48,12 +50,8 @@ object OpenAIClient {
         }
     }
 
-    @OptIn(InternalSerializationApi::class)
     suspend fun get(messages: List<LLMMessage>): OpenAIAPI.ResponseAPI {
         val requestAPI = OpenAIAPI.RequestAPI("gpt-4o", messages)
-
-//        val kek = OpenAIAPI.RequestAPI::class.serializer()
-//        val s = Json.encodeToString(kek, requestAPI)
         //TODO: change to sse
         val result = httpClient.post(OpenAIConf.Const.URL) {
             setBody(requestAPI)

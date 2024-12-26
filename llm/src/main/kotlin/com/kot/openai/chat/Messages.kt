@@ -1,4 +1,4 @@
-package com.kot.openai
+package com.kot.openai.chat
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
@@ -39,7 +39,9 @@ data class User(
             data class ImageUrlDetails(
                 val url: String,
                 val detail: String = "auto"
-            )
+            ) {
+                constructor(image64Encoded: ImageBase64): this(url = "data:image/jpeg;base64,${image64Encoded.content}")
+            }
         }
     }
 }

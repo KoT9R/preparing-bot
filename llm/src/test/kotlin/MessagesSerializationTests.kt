@@ -1,9 +1,10 @@
-import com.kot.openai.LLMMessage
-import com.kot.openai.LLMMessages
-import com.kot.openai.OpenAIAPI
-import com.kot.openai.User
+import com.kot.openai.chat.LLMMessage
+import com.kot.openai.api.OpenAIAPI
+import com.kot.openai.chat.User
 import kotlinx.serialization.json.Json
+import org.intellij.lang.annotations.Language
 import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class MessagesSerializationTests {
     private val json = Json {
@@ -12,8 +13,25 @@ class MessagesSerializationTests {
     @Test
     fun `simple test`() {
         val userMsg = "awdawdaw".toMessages()
-        val request= OpenAIAPI.RequestAPI("gpt-3.5-turbo", userMsg)
-        println(request.toText())
+        val request = OpenAIAPI.RequestAPI("gpt-3.5-turbo", userMsg)
+        @Language("json")
+        val expected =  """
+            {
+                "model": "gpt-3.5-turbo",
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "awdawdaw"
+                            }
+                        ]
+                    }
+                ]
+            }
+        """.trimIndent()
+        assertEquals(request.toText(), expected)
     }
 
     private fun OpenAIAPI.RequestAPI.toText(): String {

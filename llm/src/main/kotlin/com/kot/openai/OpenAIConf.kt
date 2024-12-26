@@ -11,6 +11,4 @@ object OpenAIConf {
         const val OPENAI_ORGANIZATION = "OpenAI-Organization"
         const val URL = "https://api.openai.com/v1/chat/completions"
     }
-
-
 }

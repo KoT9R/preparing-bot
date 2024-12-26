@@ -2,10 +2,11 @@ package com.kot.com.kot.telegram.handlers
 
 import com.github.kotlintelegrambot.dispatcher.Dispatcher
 import com.github.kotlintelegrambot.dispatcher.message
-import com.github.kotlintelegrambot.dispatcher.photos
-import com.github.kotlintelegrambot.dispatcher.text
 import com.github.kotlintelegrambot.entities.ChatId
 import com.kot.openai.*
+import com.kot.openai.chat.Assistant
+import com.kot.openai.chat.LLMMessage
+import com.kot.openai.chat.User
 
 object MessageHandler {
     fun registerHandlers(dispatcher: Dispatcher) {
