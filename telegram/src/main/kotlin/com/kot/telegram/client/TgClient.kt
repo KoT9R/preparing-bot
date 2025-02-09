@@ -1,5 +1,6 @@
 package com.kot.telegram.client
 
+import com.kot.openai.chat.ImageBase64
 import com.kot.telegram.api.FileResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -20,7 +21,7 @@ object TgClient {
     }
 
     @OptIn(ExperimentalEncodingApi::class)
-    suspend fun getFileAsBase64(fileId: String, token: String): String? {
+    suspend fun getFileAsBase64(fileId: String, token: String): ImageBase64? {
         val fileResponse: FileResponse = client.get("https://api.telegram.org/bot$token/getFile") {
             parameter("file_id", fileId)
         }.body()
@@ -28,6 +29,8 @@ object TgClient {
 
         val fileBytes = client.get("https://api.telegram.org/file/bot$token/$filePath").body<ByteArray>()
 
-        return Base64.encode(fileBytes)
+        val content = Base64.encode(fileBytes)
+
+        return ImageBase64(content)
     }
 }
