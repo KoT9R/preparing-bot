@@ -1,7 +1,6 @@
 plugins {
-    kotlin("jvm")
-    id("io.ktor.plugin") version "3.0.2"
-    id("org.jetbrains.kotlin.plugin.serialization") version "2.1.0"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 group = "com.kot"
@@ -14,12 +13,12 @@ repositories {
 
 dependencies {
     implementation(project(":llm"))
-    implementation("io.github.kotlin-telegram-bot.kotlin-telegram-bot:telegram:6.3.0")
-    implementation("io.ktor:ktor-client-content-negotiation")
-    implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
-    implementation("io.ktor:ktor-client-core")
-    implementation("io.ktor:ktor-client-cio")
-    testImplementation(kotlin("test"))
+    implementation(libs.kotlin.telegram.bot)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.kotlin.test)
 }
 
 tasks.test {

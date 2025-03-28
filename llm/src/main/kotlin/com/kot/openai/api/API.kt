@@ -1,6 +1,6 @@
 package com.kot.openai.api
 
-import com.kot.openai.chat.LLMMessage
+import com.kot.chat.LLMMessage
 import kotlinx.serialization.Serializable
 
 object OpenAIAPI {

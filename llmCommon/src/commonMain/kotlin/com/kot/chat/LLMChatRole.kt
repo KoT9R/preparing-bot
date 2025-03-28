@@ -1,4 +1,4 @@
-package com.kot.openai.chat
+package com.kot.chat
 
 import kotlinx.serialization.Serializable
 

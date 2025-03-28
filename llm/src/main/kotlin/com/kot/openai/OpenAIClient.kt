@@ -1,7 +1,7 @@
 package com.kot.openai
 
+import com.kot.chat.LLMMessage
 import com.kot.openai.api.OpenAIAPI
-import com.kot.openai.chat.LLMMessage
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.engine.cio.*
@@ -12,9 +12,7 @@ import io.ktor.client.plugins.sse.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
-import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.serializer
 
 object OpenAIClient {
     private val httpClient = HttpClient(CIO) {
