@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     implementation(project(":llm"))
+    implementation(project(":llmCommon"))
     implementation(libs.kotlin.telegram.bot)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)

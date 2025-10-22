@@ -1,6 +1,7 @@
 package com.kot.telegram.manager
 
-import com.kot.openai.chat.ImageBase64
+import com.kot.chat.ImageBase64
+
 
 data class HomeworkSession(
     var state: HomeworkState = HomeworkState.WAITING_FOR_TASK,

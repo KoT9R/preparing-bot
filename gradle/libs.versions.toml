@@ -4,6 +4,7 @@ ktor="3.1.1"
 logback="1.5.18"
 kotlinx-serialization="1.8.0"
 kotlin-telegram-bot="6.3.0"
+tgbotapi="30.0.0"
 
 [libraries]
 # Ktor server
@@ -30,7 +31,7 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
 # Telegram
-kotlin-telegram-bot = { module = "io.github.kotlin-telegram-bot.kotlin-telegram-bot:telegram", version.ref = "kotlin-telegram-bot" }
+kotlin-telegram-bot = { module = "dev.inmo:tgbotapi", version.ref = "tgbotapi" }
 
 [plugins]
 ktor-plugin = {id="io.ktor.plugin", version.ref = "ktor"}

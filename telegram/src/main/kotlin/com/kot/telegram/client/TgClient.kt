@@ -1,6 +1,6 @@
 package com.kot.telegram.client
 
-import com.kot.openai.chat.ImageBase64
+import com.kot.chat.ImageBase64
 import com.kot.telegram.api.FileResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
